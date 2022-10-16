@@ -1,9 +1,8 @@
-
 package vista;
 
 
-//import java.awt.Image;
-//import java.awt.Toolkit;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JPanel;
@@ -19,8 +18,6 @@ import javax.swing.JLabel;
  * @author jeanp
  */
 public class VentanaInicio extends JFrame {
-    
-    //private Header jpHeader;
     private JLabel jlNombrejuego;
     private JButton btnJugar;
     private JButton btnInstrucciones;
@@ -41,12 +38,13 @@ public class VentanaInicio extends JFrame {
         setVisible(true); 
         setResizable(false);
         
-        //Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
         
         //Configuracion del encabezado
-        //jpHeader = new Header("/Imagenes/Cuerda.png");
+
         jpContenido = new JPanel();
         
+        add(jpContenido);
         
         jlNombrejuego = new JLabel("AHORCADO");
         jlNombrejuego.setBounds(220,50, 500,20);
@@ -58,19 +56,19 @@ public class VentanaInicio extends JFrame {
         btnParaquesirve = new JButton("Para que sirve");
         btnParaquesirve.setBounds(180,250, 150,50);
         
-
+       
         
         jpContenido.setSize(500,500);        
         jpContenido.setBounds(0,110, 519, 500);
         jpContenido.setLayout(null);
         
-        add(jpContenido);
-        //add(jpHeader);
-        
         jpContenido.add(jlNombrejuego);
         jpContenido.add(btnJugar);
         jpContenido.add(btnInstrucciones);
         jpContenido.add(btnParaquesirve);
+        
+        Image miIcono = miPantalla.getImage("src/main/java/Imagenes/Cuerda.png");
+	setIconImage(miIcono);
         
         ActionListener accion = new ActionListener(){
             @Override
@@ -78,12 +76,9 @@ public class VentanaInicio extends JFrame {
                 VentanaJugador ventanajugador = new VentanaJugador();
                 dispose(); 
             }       
-        };
+        };     
+        btnJugar.addActionListener(accion); 
         
-        btnJugar.addActionListener(accion);
-        
-        //Image miIcono = miPantalla.getImage("src/Imagenes/Cuerda.png");
-	//setIconImage(miIcono);
     }
     
  

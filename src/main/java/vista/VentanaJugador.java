@@ -11,6 +11,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -91,13 +93,20 @@ public class VentanaJugador extends JFrame{
         };
         
         btnAtras.addActionListener(regresar);     
+        
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent evt) {
+                cerrarVentana();
+            }
+        });
     }
     private void siguienteVentana(){
         String nombre =txtNombre.getText();
         if(!nombre.trim().isEmpty() || nombre.trim().length() > 0){
             Jugador jugador = new Jugador(nombre);        
             dispose(); 
-            Configuracion configuracion = new Configuracion(jugador);              
+            Tematica configuracion = new Tematica(jugador);              
         } else {
             JOptionPane.showMessageDialog(null,"Por favor ingrese su nombre", 
                     "Advertencia", JOptionPane.ERROR_MESSAGE);
@@ -130,4 +139,18 @@ public class VentanaJugador extends JFrame{
 
         }
     }
+    
+    private void cerrarVentana(){
+        int respuesta;
+
+        respuesta = JOptionPane.showConfirmDialog(
+                    null,"¿Realmente dese abandonar el juego?", "Advertencia",
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.WARNING_MESSAGE);
+        if(respuesta == JOptionPane.YES_OPTION){
+            System.exit(0);
+        }
+    }
+    
+    
 }
