@@ -4,10 +4,15 @@
  */
 package Logica;
 
+import Usuario.Jugador;
 /**
  *
  * @author jeanp
  */
 public class Ronda {
+    private int numeroPalabras;
     
+    public Ronda(Jugador jugador){
+        
+    }
 }

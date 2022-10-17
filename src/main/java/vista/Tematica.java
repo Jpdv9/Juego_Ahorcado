@@ -4,7 +4,10 @@
  */
 package vista;
 
+import Logica.Ahorcado;
 import Usuario.Jugador;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -21,6 +24,7 @@ import javax.swing.JPanel;
  */
 public class Tematica extends JFrame{
     private JLabel jlTematica;
+    private JLabel jlPalabraOculta;
     private JButton btnAnimales;
     private JButton btnFrutas;
     private JButton btnMusica;
@@ -34,8 +38,6 @@ public class Tematica extends JFrame{
     private JPanel jpContenido;
 
     public Tematica(Jugador jugador){
-        //juegoMemoria = new JuegoMemoria(jugador);
-        //juegoMemoria.iniciarRonda();
         iniciarComponentes();
         setSize(700,500);
         setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -53,28 +55,59 @@ public class Tematica extends JFrame{
         jlTematica = new JLabel("TEMATICAS");
         jlTematica.setBounds(320,20, 400,50);
         
+
+        
         jpContenido.add(jlTematica);
         
         btnAnimales = new JButton("Animales");
         btnAnimales.setBounds(75,100, 150,50);
+        btnAnimales.setForeground(Color.darkGray);
+        btnAnimales.setFont(new Font("Agency FB",Font.BOLD,35));
+        
         btnFrutas = new JButton("Frutas");
         btnFrutas.setBounds(275,100, 150,50);
-        btnMusica = new JButton("Música");
+        btnFrutas.setForeground(Color.darkGray);
+        btnFrutas.setFont(new Font("Agency FB",Font.BOLD,35));
+        
+        btnMusica = new JButton("Musica");
         btnMusica.setBounds(475,100, 150,50);
+        btnMusica.setForeground(Color.darkGray);
+        btnMusica.setFont(new Font("Agency FB",Font.BOLD,35));
+        
         btnNombres = new JButton("Nombres");
         btnNombres.setBounds(75,200, 150,50);
+        btnNombres.setForeground(Color.darkGray);
+        btnNombres.setFont(new Font("Agency FB",Font.BOLD,35));
+        
         btnColores = new JButton("Meses");
         btnColores.setBounds(275,200, 150,50);
+        btnColores.setForeground(Color.darkGray);
+        btnColores.setFont(new Font("Agency FB",Font.BOLD,35));
+        
         btnCuerpo = new JButton("Cuerpo");
         btnCuerpo.setBounds(475,200, 150,50);
+        btnCuerpo.setForeground(Color.darkGray);
+        btnCuerpo.setFont(new Font("Agency FB",Font.BOLD,35));
+        
         btnTransporte = new JButton("Transportes");
         btnTransporte.setBounds(75,300, 150,50);
+        btnTransporte.setForeground(Color.darkGray);
+        btnTransporte.setFont(new Font("Agency FB",Font.BOLD,30));
+        
         btnPaises = new JButton("Paises");
         btnPaises.setBounds(275,300, 150,50);
+        btnPaises.setForeground(Color.darkGray);
+        btnPaises.setFont(new Font("Agency FB",Font.BOLD,35));
+        
         btnDeportes = new JButton("Deportes");
         btnDeportes.setBounds(475,300, 150,50);
+        btnDeportes.setForeground(Color.darkGray);
+        btnDeportes.setFont(new Font("Agency FB",Font.BOLD,35));
+        
         btnAtras =new JButton("Atras");
         btnAtras.setBounds(275,400, 150,50);
+        btnAtras.setForeground(Color.darkGray);
+        btnAtras.setFont(new Font("Agency FB",Font.BOLD,35));
         
         
        
@@ -96,6 +129,8 @@ public class Tematica extends JFrame{
         btnAnimales.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 0;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();
@@ -105,6 +140,8 @@ public class Tematica extends JFrame{
         btnFrutas.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 1;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();
@@ -114,6 +151,8 @@ public class Tematica extends JFrame{
         btnMusica.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 2;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();
@@ -123,6 +162,8 @@ public class Tematica extends JFrame{
         btnNombres.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 3;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();
@@ -132,6 +173,8 @@ public class Tematica extends JFrame{
         btnColores.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 4;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();
@@ -141,6 +184,8 @@ public class Tematica extends JFrame{
         btnCuerpo.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 5;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();
@@ -150,6 +195,8 @@ public class Tematica extends JFrame{
         btnTransporte.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 6;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();
@@ -159,6 +206,8 @@ public class Tematica extends JFrame{
         btnPaises.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 7;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();
@@ -168,6 +217,8 @@ public class Tematica extends JFrame{
         btnDeportes.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {
+                Ahorcado.opcion = 8;
+                
                 Jugador jugador = new Jugador();
                 Configuracion configuracion = new Configuracion(jugador);
                 dispose();

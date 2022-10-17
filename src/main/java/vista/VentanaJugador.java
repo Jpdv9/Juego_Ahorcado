@@ -4,6 +4,7 @@
  */
 package vista;
 
+import Logica.Ahorcado;
 import Usuario.Jugador;
 import java.awt.Color;
 import java.awt.Font;
@@ -32,6 +33,8 @@ public class VentanaJugador extends JFrame{
     private JTextField txtNombre;
     private JButton btnSiguiente;
     private JButton btnAtras;
+    private JLabel imagen1, imagen2, imagen3, imagen4, imagen5,
+            imagen6, imagen7,imagen8, imagen9, imagen10;
    
     public VentanaJugador(){
         iniciarComponentes();
@@ -50,10 +53,16 @@ public class VentanaJugador extends JFrame{
         
         add(jpContenido);
         
-        jlNombrejuego = new JLabel("AHORCADO");
-        jlNombrejuego.setBounds(220,50, 500,20);
-        jlUsuario = new JLabel("Escriba tu nombre");
-        jlUsuario.setBounds(200,150, 400,20);
+        jlNombrejuego = new JLabel("AH_RCAD_");
+        jlNombrejuego.setBounds(0,60,500,55);
+        jlNombrejuego.setForeground(Color.RED);
+        jlNombrejuego.setFont(new Font ("Perpetua Titling MT", Font.ROMAN_BASELINE, 45));
+        jlNombrejuego.setHorizontalAlignment(JLabel.CENTER);
+        
+        jlUsuario = new JLabel("ESCRIBE TU NOMBRE");
+        jlUsuario.setForeground(Color.BLUE);
+        jlUsuario.setFont(new Font("Agency FB",Font.BOLD,25));
+        jlUsuario.setBounds(180,150, 400,20);
         
         txtNombre = new JTextField("");
         txtNombre.setHorizontalAlignment(JTextField.CENTER);
@@ -62,9 +71,17 @@ public class VentanaJugador extends JFrame{
         txtNombre.setBounds(125,190,250, 30);
         
         btnSiguiente = new JButton("Siguiente");
-        btnSiguiente.setBounds(180,300, 150,50);
+        btnSiguiente.setBounds(275,250, 100,50);
+        btnSiguiente.setAlignmentX(JButton.CENTER_ALIGNMENT);
+        btnSiguiente.setFocusable(false);
+        btnSiguiente.setFont(new Font("Agency FB",Font.BOLD,22));
+        
+        
         btnAtras = new JButton("Atras");
-        btnAtras.setBounds(200,370, 100,50);
+        btnAtras.setBounds(125,250, 100,50);
+        btnAtras.setAlignmentX(JButton.CENTER_ALIGNMENT);
+        btnAtras.setFocusable(false);
+        btnAtras.setFont(new Font("Agency FB",Font.BOLD,25));
         
         jpContenido.add(jlNombrejuego);
         jpContenido.add(jlUsuario);
@@ -139,6 +156,8 @@ public class VentanaJugador extends JFrame{
 
         }
     }
+    
+   
     
     private void cerrarVentana(){
         int respuesta;

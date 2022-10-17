@@ -43,8 +43,11 @@ public class Configuracion extends JFrame {
         jpContenido = new JPanel();
         add(jpContenido);
         
-        jlPalabras = new JLabel("Cantidad de palabras");
-        jlPalabras.setBounds(200,20, 200,50);
+        jlPalabras = new JLabel("CANTIDAD DE PALABRAS");
+        jlPalabras.setBounds(125,120, 250,50);
+        jlPalabras.setForeground(Color.BLACK);
+        jlPalabras.setFont(new Font("Agency FB",Font.BOLD,30));
+        jlPalabras.setHorizontalAlignment(JLabel.CENTER);
         
         txtNumeroPalabras = new JTextField("");
         txtNumeroPalabras.setHorizontalAlignment(JTextField.CENTER);
@@ -69,6 +72,8 @@ public class Configuracion extends JFrame {
                 int numero = 0;
                 try{
                     numero = Integer.parseInt(txtNumeroPalabras.getText());
+                    Jugador jugador = new Jugador();
+                    VentanaJuego ventanajuego = new VentanaJuego(jugador);
                     dispose();
                 } catch(NumberFormatException ex){
                      JOptionPane.showMessageDialog(null,

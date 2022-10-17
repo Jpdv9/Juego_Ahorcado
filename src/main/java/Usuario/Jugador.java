@@ -10,9 +10,11 @@ package Usuario;
  */
 public class Jugador {
     private String nombre;
+
     
     public Jugador(){
         nombre = "Jugador 1";
+
     }
     
     public Jugador(String nombre){
