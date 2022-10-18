@@ -4,10 +4,11 @@
  */
 package vista;
 
-import Logica.Ahorcado;
 import Usuario.Jugador;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -33,8 +34,6 @@ public class VentanaJugador extends JFrame{
     private JTextField txtNombre;
     private JButton btnSiguiente;
     private JButton btnAtras;
-    private JLabel imagen1, imagen2, imagen3, imagen4, imagen5,
-            imagen6, imagen7,imagen8, imagen9, imagen10;
    
     public VentanaJugador(){
         iniciarComponentes();
@@ -45,6 +44,8 @@ public class VentanaJugador extends JFrame{
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
+        
+        
 
     }
     
@@ -52,6 +53,8 @@ public class VentanaJugador extends JFrame{
         jpContenido = new JPanel();
         
         add(jpContenido);
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+      
         
         jlNombrejuego = new JLabel("AH_RCAD_");
         jlNombrejuego.setBounds(0,60,500,55);
@@ -99,6 +102,9 @@ public class VentanaJugador extends JFrame{
         txtNombre.addKeyListener(manejadorEventos);
         
         txtNombre.requestFocusInWindow();
+        
+        Image miIcono = miPantalla.getImage("src/main/java/Imagenes/Cuerda.png");
+	setIconImage(miIcono);
         
         ActionListener regresar = new ActionListener(){
             @Override
@@ -154,10 +160,8 @@ public class VentanaJugador extends JFrame{
         @Override
         public void keyReleased(KeyEvent e) {
 
-        }
+        }       
     }
-    
-   
     
     private void cerrarVentana(){
         int respuesta;
@@ -169,7 +173,5 @@ public class VentanaJugador extends JFrame{
         if(respuesta == JOptionPane.YES_OPTION){
             System.exit(0);
         }
-    }
-    
-    
+    }  
 }

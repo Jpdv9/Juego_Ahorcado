@@ -2,8 +2,8 @@
 package vista;
 
 
-//import java.awt.Image;
-//import java.awt.Toolkit;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,7 +21,6 @@ import javax.swing.JLabel;
  */
 public class VentanaInicio extends JFrame {
     
-    //private Header jpHeader;
     private JLabel jlNombrejuego;
     private JButton btnJugar;
     private JButton btnInstrucciones;
@@ -40,8 +39,6 @@ public class VentanaInicio extends JFrame {
     
     public VentanaInicio(){
         iniciarComponentes();        
-        //Border bordejpContenido = TitledBorder(new EtchedBorder(),"", TitledBorder.CENTER,TitledBorder.DEFAULT_POSITION);
-        //jpContenido.setBorder(bordejpContenido);
     }
 
     private void iniciarComponentes(){
@@ -52,7 +49,8 @@ public class VentanaInicio extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
         setResizable(false);
-        //Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
         
         //Configuracion del encabezado
 
@@ -167,8 +165,8 @@ public class VentanaInicio extends JFrame {
         
         btnJugar.addActionListener(accion);
         
-        //Image miIcono = miPantalla.getImage("src/Imagenes/Cuerda.png");
-	//setIconImage(miIcono);
+        Image miIcono = miPantalla.getImage("src/main/java/Imagenes/Cuerda.png");
+	setIconImage(miIcono);
     }
 
 }

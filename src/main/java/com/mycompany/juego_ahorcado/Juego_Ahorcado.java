@@ -17,6 +17,5 @@ public class Juego_Ahorcado {
     public static void main(String[] args) {
        VentanaInicio ventana = new VentanaInicio();
        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       //Ahorcado.palabras();
     }
 }

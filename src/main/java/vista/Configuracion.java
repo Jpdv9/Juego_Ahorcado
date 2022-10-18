@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package vista;
 
 import Usuario.Jugador;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -42,6 +41,7 @@ public class Configuracion extends JFrame {
         
         jpContenido = new JPanel();
         add(jpContenido);
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
         
         jlPalabras = new JLabel("CANTIDAD DE PALABRAS");
         jlPalabras.setBounds(125,120, 250,50);
@@ -66,6 +66,10 @@ public class Configuracion extends JFrame {
         jpContenido.setBounds(0,150, 700, 500);
         jpContenido.setLayout(null);
         
+        Image miIcono = miPantalla.getImage("src/main/java/Imagenes/Cuerda.png");
+	setIconImage(miIcono);
+        
+      
         btnIniciar.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e) {

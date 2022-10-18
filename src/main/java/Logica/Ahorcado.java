@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Logica;
 
 import java.util.ArrayList;
@@ -13,6 +10,8 @@ import javax.swing.JOptionPane;
  * @author jeanp
  */
 public class Ahorcado {
+    
+    //Variables
     public static final int maximos_intentos = 10;
     public static int intentos = maximos_intentos;
     public static int opcion = -1;
@@ -20,8 +19,10 @@ public class Ahorcado {
     private static String palabra = "";
     public static char[] palabraOculta;
     
+    //
     public static final ArrayList<String> palabras = new ArrayList<>();
     
+    //Las categorias y palabras de cada una de ellas
     public static final String[][] opciones = 
     {
         {"perro", "gato", "leon", "jirafa"},
@@ -41,8 +42,9 @@ public class Ahorcado {
     }
     
     public static void palabras()
-    {
+    {   
         String palabraSecreta = getPalabraSecreta();
+        int respuesta;
         palabraOculta = intentos <= 0 || palabraSecreta.isEmpty() ? getOcultarPalabra(palabraSecreta) : palabraOculta;
         
         if(palabraOculta == null)
@@ -51,7 +53,6 @@ public class Ahorcado {
         }
         
         boolean juegoGanado = !hayLetrasOcultas(palabraOculta);
-        
         char letra = Ahorcado.letra.charAt(0);
         boolean letraAcertada = false;
 
@@ -62,33 +63,33 @@ public class Ahorcado {
             }
         }
         
-        if(!letraAcertada){
-            System.out.println("No has hacertado");
-            
+        if(!letraAcertada){       
             intentos--;
             if(intentos <= 0){
-                System.out.println("Has perdido");
-            }
-            
-            System.out.println("Te queda " + intentos + " Intentos");
-            System.out.println(palabraOculta);
-            System.out.println("Introduce una letra");
+                respuesta = JOptionPane.showConfirmDialog(
+                    null,"Has Fallado, ¿Deseas continuar?", "Malardo",
+                    JOptionPane.YES_NO_OPTION, 
+                    JOptionPane.QUESTION_MESSAGE);
+ 
+                if (respuesta == JOptionPane.YES_OPTION){
+                    Ahorcado.palabras();
+                }
+            }  
         }
         else
         {
             juegoGanado = !hayLetrasOcultas(palabraOculta);
-
-            if(juegoGanado){
-                JOptionPane.showConfirmDialog(
-                    null,"Has Acertado, ¿Deseas continuar?", "Advertencia",
+            
+            
+            if(juegoGanado){    
+                
+                respuesta = JOptionPane.showConfirmDialog(
+                    null,"Has Perdido, ¿Deseas continuar?", "Felicidades",
                     JOptionPane.YES_NO_OPTION, 
                     JOptionPane.QUESTION_MESSAGE);
-
-            }
-            
-            for(char c : palabraOculta)
-            {
-                System.out.print(c);
+                if (respuesta == JOptionPane.YES_OPTION){
+                    Ahorcado.getPalabraSecreta();
+                }
             }
         }
        
@@ -96,6 +97,7 @@ public class Ahorcado {
         
     }
     
+    //Dar al lazar una palabra de la categoria seleccionada
     static String getPalabraSecreta(){
         if(intentos <= 0 || Ahorcado.palabra.isEmpty())
         {
@@ -117,6 +119,7 @@ public class Ahorcado {
         }
     }
     
+    //Ocultar las letras de las palabras
     static char[] getOcultarPalabra(String palabra){
         int numeroLetrasPalabra = palabra.length();
         char [] palabraOculta = new char[numeroLetrasPalabra];
