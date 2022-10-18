@@ -84,7 +84,7 @@ public class Ahorcado {
             if(juegoGanado){    
                 
                 respuesta = JOptionPane.showConfirmDialog(
-                    null,"Has Perdido, ¿Deseas continuar?", "Felicidades",
+                    null,"Has Ganado, ¿Deseas continuar?", "Felicidades",
                     JOptionPane.YES_NO_OPTION, 
                     JOptionPane.QUESTION_MESSAGE);
                 if (respuesta == JOptionPane.YES_OPTION){
