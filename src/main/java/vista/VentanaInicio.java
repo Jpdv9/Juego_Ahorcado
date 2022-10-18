@@ -162,8 +162,25 @@ public class VentanaInicio extends JFrame {
                 dispose(); 
             }       
         };
-        
         btnJugar.addActionListener(accion);
+        
+        ActionListener instrucciones = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaInstrucciones ventanainstrucciones = new VentanaInstrucciones();
+                dispose(); 
+            }       
+        };
+        btnInstrucciones.addActionListener(instrucciones);
+        
+        ActionListener uso = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VentanaUso ventanauso = new VentanaUso();
+                dispose(); 
+            }       
+        };
+        btnParaquesirve.addActionListener(uso);
         
         Image miIcono = miPantalla.getImage("src/main/java/Imagenes/Cuerda.png");
 	setIconImage(miIcono);
